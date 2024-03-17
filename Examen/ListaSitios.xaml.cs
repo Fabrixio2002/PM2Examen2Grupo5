@@ -95,10 +95,23 @@ public partial class ListaSitios : ContentPage
         }
     }
 
-    private void Button_Clicked_2(object sender, EventArgs e)
+    private async void Button_Clicked_2(object sender, EventArgs e)
     {
-
+        if (sitiosCollectionView.SelectedItem is Sitios selectedSitio)
+        {
+            // Obtener la latitud y longitud del sitio seleccionado
+            double latitud = selectedSitio.Latitud;
+            double longitud = selectedSitio.Longitud;
+            String Des = selectedSitio.Descripcion;
+            // Pasar la latitud y longitud a la página del mapa
+            await Navigation.PushAsync(new MapView(latitud, longitud,Des));
+        }
+        else
+        {
+            await DisplayAlert("Advertencia", "Selecciona un sitio antes de ver el mapa.", "OK");
+        }
     }
+
 
     private async void sitiosCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {

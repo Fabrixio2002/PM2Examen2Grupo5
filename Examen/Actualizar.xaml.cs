@@ -119,6 +119,7 @@ public partial class Actualizar : ContentPage
     private void btnlist_Clicked(object sender, EventArgs e)
     {
 
+
     }
 
     private async void fotico_Clicked(object sender, EventArgs e)
