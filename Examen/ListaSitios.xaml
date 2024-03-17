@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen.ListaSitios"
+             xmlns:conver="clr-namespace:Examen"
+             Title="ListaSitios">
+
+    <ContentPage.Resources>
+        <conver:Base64Image x:Key="BaseArray"></conver:Base64Image>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid Padding="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <CollectionView x:Name="sitiosCollectionView" 
+                            Grid.Row="0"
+                            SelectionMode="Single"
+                            SelectionChanged="sitiosCollectionView_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     VerticalItemSpacing="15"
+                                     HorizontalItemSpacing="15">
+                    </GridItemsLayout>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <!-- Foto -->
+                            <Image x:Name="foto" HeightRequest="70" 
+                                WidthRequest="70"
+                                Aspect="AspectFill"
+                                Source="{Binding Foto,Converter={StaticResource BaseArray}}"/>
+
+                            <StackLayout>
+                                <!-- Longitud -->
+                                <Label Text="N°Registro: " FontAttributes="Bold"/>
+                                <Label x:Name="id" Text="{Binding Id}"/>
+                                <Label Text="Longitud: " FontAttributes="Bold"/>
+                                <Label x:Name="longi" Text="{Binding Longitud}"/>
+                                <!-- Latitud -->
+                                <Label Text="Latitud: " FontAttributes="Bold"/>
+                                <Label Text="{Binding Latitud}"/>
+                                <!-- Descripción -->
+                                <Label Text="Descripción: " FontAttributes="Bold"/>
+                               <Label Text="{Binding Descripcion}"/>
+                                                    
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Botones para eliminar, agregar e ir al sitio -->
+            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button x:Name="btnEliminar" Text="Eliminar" BackgroundColor="Red" Margin="10" Clicked="Button_Clicked_1"/>
+                <Button Text="Actualizar" BackgroundColor="#4CAF50" Margin="10" Clicked="Button_Clicked"/>
+                <Button Text="Ir a Sitio" BackgroundColor="#2196F3" Margin="10" Clicked="Button_Clicked_2"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

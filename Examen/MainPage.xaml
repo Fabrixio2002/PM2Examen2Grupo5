@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen.MainPage">
+    
+    <VerticalStackLayout Padding="25">
+        <Label 
+         Text="Lugares Visitados"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />
+
+        <Image x:Name="foto" BackgroundColor="AliceBlue"  HeightRequest="300" WidthRequest="300"
+            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Image>
+
+        <Button x:Name="fotico" Text="Foto"  Clicked="fotico_Clicked"></Button>
+        <Label Text=""/>
+
+        <Label Text="Latitud"/>
+        <Label x:Name="txtla"></Label>
+        <Label Text=""/>
+        <Label Text="Longitud"/>
+        <Label x:Name="txtlo"></Label>
+        <Label Text=""/>
+        <Label Text="Descripcion"/>
+        <Editor x:Name="txtarea"></Editor>
+
+
+        <Label Text=""/>
+
+        <Button x:Name="Agregar"  BackgroundColor="#4CAF50" Text="Guardar" Clicked="Agregar_Clicked"></Button>
+        <Label Text=""/>
+        <Button x:Name="btnlist" BackgroundColor="#2196F3" Text="Lista Sitios" Clicked="btnlist_Clicked"/>
+
+    </VerticalStackLayout>
+        
+</ContentPage>
